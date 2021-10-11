@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Joueur{% endblock %}
+
+{% block body %}
+<section class='index show'>
+    <h1>{{ joueur.pseudoJoueur }}</h1>
+            
+                <h2>{{ joueur.nomJoueur }}           
+                {{ joueur.prenomJoueur }}</h2>
+<h2><img src="{{ asset('uploads/photos/' ~ joueur.photoJoueur) }}" width="300"></h2>
+<h3> {{ joueur.equipe.nomEquipe }}</h3>
+<h3> {{ joueur.esport.nomEsport }}</h3>
+
+{% if (is_granted('ROLE_EDITEUR')) %}
+
+    <a href="{{ path('joueur_index') }}">back to list</a>
+
+    <a href="{{ path('joueur_edit', {'id': joueur.id}) }}">edit</a>
+
+    {{ include('joueur/_delete_form.html.twig') }}
+    {% endif %}
+    </section>
+{% endblock %}

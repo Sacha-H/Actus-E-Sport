@@ -1,0 +1,324 @@
+body {
+  font-family: 'Roboto' !important;
+  background-color: #3e4852 !important;
+  color: #cccfd6 !important;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+h2 {
+  padding-bottom: 5vh;
+}
+
+h5 {
+  text-align: center;
+}
+
+a {
+  text-decoration: none !important;
+  color: #cccfd6 !important;
+  border: 2px #cccfd6 solid;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+a:hover {
+  color: #3e4852 !important;
+  background-color: #cccfd6 !important;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+button {
+  border: solid 1px #cccfd6 !important;
+  color: #cccfd6 !important;
+}
+
+button:hover {
+  background-color: #282b44 !important;
+}
+
+nav ul {
+  width: 100%;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: space-evenly !important;
+      -ms-flex-pack: space-evenly !important;
+          justify-content: space-evenly !important;
+}
+
+section {
+  padding: 7vh 0;
+}
+
+#jeux, #equipe, #joueur, #user, #contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50vw;
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+video {
+  width: 100%;
+  top: 56px;
+  z-index: -10;
+}
+
+.intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+}
+
+article {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  min-width: 360px;
+  width: 100vw;
+  text-align: center;
+  font-family: 'Roboto';
+  padding: 10px;
+  border-radius: 5px;
+}
+
+article h1 {
+  margin: 20px;
+}
+
+.derniere-actus {
+  text-align: center;
+  background-color: #cccfd6;
+  color: #3e4852;
+}
+
+.derniere-actus .article {
+  padding: 0;
+  margin-top: 20px;
+}
+
+.populaire-actus {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.article {
+  padding: 0;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.jeux {
+  background-color: #23282c;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.jeux .affichage-jeux {
+  padding: 0;
+  margin: 20px 0;
+}
+
+.equipe {
+  background-color: #3e4852;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.equipe .affichage-equipe {
+  padding: 0;
+  margin-top: 20px;
+}
+
+.equipe a:hover img {
+  padding-left: 30px;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.joueur {
+  background-color: #cccfd6;
+  text-align: center;
+  color: #3e4852;
+  margin-top: 20px;
+}
+
+.joueur .affichage-joueur {
+  padding: 0;
+  margin-top: 20px;
+}
+
+.joueur a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #3e4852 !important;
+}
+
+.joueur a:hover {
+  color: #cccfd6 !important;
+  background-color: #3e4852 !important;
+}
+
+.joueur img {
+  margin-top: 10px;
+}
+
+.index {
+  padding: 50px;
+  min-height: 84vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.index h1, .index h2, .index h3 {
+  text-align: center;
+}
+
+.index .jeux {
+  background-color: #3e4852;
+}
+
+.index span {
+  color: #cccfd6;
+}
+
+.index span:hover {
+  color: #3e4852 !important;
+}
+
+.index .auteur {
+  color: #a0a3aa;
+}
+
+.index .auteur:hover {
+  color: #a0a3aa !important;
+  font-weight: bold;
+}
+
+.index .joueur {
+  background-color: #3e4852;
+}
+
+.index .joueur a {
+  border: none;
+}
+
+.index .joueur a:hover {
+  color: #3e4852 !important;
+  background-color: #cccfd6 !important;
+}
+
+.index .show {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.aArticle {
+  border: none !important;
+}
+
+.aArticle:hover {
+  background-color: #3e4852 !important;
+}
+
+.aArticle:hover img {
+  margin-left: 50px;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.haArticle {
+  border: none !important;
+  color: #3e4852 !important;
+}
+
+.haArticle:hover {
+  color: #282b44  !important;
+}
+
+.haArticle:hover img {
+  margin-left: 50px;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.commentaire {
+  padding: 5vh 20vh;
+}
+
+footer {
+  height: 10vh;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+  background-color: #23282c;
+  color: #cccfd6;
+}
+/*# sourceMappingURL=style.css.map */

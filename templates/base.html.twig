@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		{# Run `composer require symfony/webpack-encore-bundle`
+				           and uncomment the following Encore helpers to start using Symfony UX #}
+		<link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+					<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+					<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+					
+
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="{{ asset('js/app.js') }}"></script>
+
+
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" ariaexpanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('home') }}">Actus
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('esport_index') }}">Jeux</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('competition_index') }}">Competition</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('equipe_index') }}">Equipes</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('joueur_index') }}">Joueurs</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('article_index') }}">Article</a>
+					</li>
+					{% if (is_granted('ROLE_ADMIN')) %}
+					
+					<li class="nav-item">
+							<a class="nav-link" href="{{ path('contact_index') }}">contact</a>
+						</li>
+						{% else %}							
+					<li class="nav-item">
+							<a class="nav-link" href="{{ path('contact_new') }}">contact</a>
+						</li>
+						{% endif %}
+					{% if (is_granted('ROLE_ADMIN'))%}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('user_index') }}">User</a>
+					</li>
+					{% endif %}
+					{% if (is_granted('ROLE_USER')) or (is_granted('ROLE_EDITEUR')) or (is_granted('ROLE_ADMIN') ) %}
+						<li class="nav-item">
+							<a class="nav-link" href="{{ ('/logout') }}">Deconnexion</a>
+						</li>
+
+					{% else %}
+						<li class="nav-item">
+							<a class="nav-link" href="{{ '/login' }}">Connexion</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ '/register' }}">Inscription</a>
+						</li>
+					{% endif %}
+
+				</ul>
+			</div>
+		</nav>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		{% block body %}{% endblock %}
+		<footer>
+		<a href="{{ path('contact_new') }}">Envoyer un message</a>
+		
+		</footer>
+	</body>
+</html>

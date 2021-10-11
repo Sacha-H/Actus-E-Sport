@@ -1,0 +1,326 @@
+body{
+    font-family: 'Roboto' !important;
+    background-color: #3e4852 !important;
+    color: rgb(204, 207, 214) !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+
+}
+
+h2{
+    padding-bottom: 5vh;
+ }
+
+ h5{
+     text-align: center;
+ }
+
+
+
+a{
+
+    text-decoration: none !important;
+    color: rgb(204, 207, 214) !important;
+    border: 2px rgb(204, 207, 214) solid;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+   
+}
+
+a:hover{
+    color: #3e4852 !important;
+    background-color: rgb(204, 207, 214) !important;
+    transition: 0.5s;
+
+}
+
+button{
+    border: solid 1px rgb(204, 207, 214) !important;
+    color: rgb(204, 207, 214) !important ;
+}
+
+button:hover{
+    
+    background-color: #282b44 !important; 
+}
+
+
+
+
+
+ nav{
+
+ 
+ul{
+    width: 100%;
+ display: flex !important;
+ justify-content: space-evenly !important;
+}
+ }
+
+ section{
+     padding: 7vh 0;
+ }
+
+
+#jeux, #equipe, #joueur, #user, #contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 50vw;
+}
+
+
+
+ form{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     
+
+ }
+
+
+
+
+
+video{
+    
+    width: 100%;
+    top: 56px;
+    z-index: -10;
+}
+
+.intro{
+    display: flex;
+    padding: 0;
+
+}
+
+article{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    text-align: center;
+    min-width: 360px;
+    width: 100vw;
+    text-align: center; 
+    font-family: 'Roboto';
+    padding: 10px;
+    border-radius: 5px;
+    h1{
+        margin: 20px;
+    }
+
+}
+
+.derniere-actus{
+   
+    text-align: center;
+    background-color: rgb(204, 207, 214);
+    color: #3e4852;
+    
+
+    
+    .article{
+        padding: 0;
+        margin-top: 20px;
+    }
+   
+}
+
+.populaire-actus{
+   
+    text-align: center;
+
+    margin-top: 20px;
+
+    
+   
+   
+}
+.article{
+    padding: 0;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.jeux{
+    background-color: #23282c;
+    text-align: center ;
+    
+
+    margin-top: 20px;
+
+    
+    .affichage-jeux{
+        padding: 0;
+        margin: 20px 0;
+        
+    }
+
+    
+
+
+}
+
+.equipe{
+    background-color: #3e4852;
+    text-align: center;
+
+    margin-top: 20px;
+
+    
+    .affichage-equipe{
+        padding: 0;
+        margin-top: 20px;
+    }
+ 
+    a:hover{
+
+        img{
+             padding-left: 30px;
+            transition: 1s;
+        }
+    }
+
+}
+
+.joueur{
+    background-color: rgb(204, 207, 214);
+    text-align: center;
+    color: #3e4852;
+    margin-top: 20px;
+
+  
+    .affichage-joueur{
+        
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    a{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #3e4852 !important;
+    }
+
+    a:hover{
+        color: rgb(204, 207, 214) !important;
+        background-color:  #3e4852 !important;
+    }
+
+    img{
+        margin-top: 10px;
+    }
+ 
+
+
+}
+
+    
+
+.index{
+    padding: 50px;
+    min-height: 84vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h1 , h2, h3{
+        text-align: center;
+        
+    }
+
+    
+
+    .jeux{
+        background-color: #3e4852 ;
+    }
+    span{
+        color:rgb(204, 207, 214)
+    }
+    span:hover{
+       color:  #3e4852 !important;
+    }
+
+
+    .auteur{
+        color: rgb(160, 163, 170);
+    }
+
+    .auteur:hover{
+        color: rgb(160, 163, 170) !important;
+        font-weight: bold;
+    }
+
+
+.joueur{
+    background-color: #3e4852 ;
+
+    a{
+        border: none;
+    }
+    
+    
+    a:hover{
+        color:  #3e4852 !important ;
+        background-color:  rgb(204, 207, 214) !important;
+    }
+
+}
+
+.show{
+    align-items: center;
+}
+
+}
+
+.aArticle{
+    border: none !important;
+}
+
+.aArticle:hover{
+    background-color: #3e4852 !important;
+    img{
+      margin-left: 50px;
+
+        transition: 1s;
+    }
+}
+
+.haArticle{
+    border: none !important;
+    color: #3e4852 !important;
+}
+
+.haArticle:hover{
+    color: #282b44  !important;
+
+    img{
+      margin-left: 50px;
+
+        transition: 1s;
+    }
+}
+
+.commentaire{
+    padding: 5vh 20vh;
+}
+
+footer{
+    height: 10vh;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: #23282c ;
+    color: rgb(204, 207, 214);
+}
+

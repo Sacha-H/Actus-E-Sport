@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Equipe{% endblock %}
+
+{% block body %}
+<section class='index show'>
+    <h1>{{ equipe.nomEquipe }}
+        <img src="{{ asset('uploads/photos/' ~ equipe.photoEquipe) }}" width="300"></h1>
+          <h3>{{ equipe.esport.nomEsport }} </h3>
+{% if (is_granted('ROLE_EDITEUR')) %}
+    <a href="{{ path('equipe_index') }}">back to list</a>
+
+    <a href="{{ path('equipe_edit', {'id': equipe.id}) }}">edit</a>
+
+    {{ include('equipe/_delete_form.html.twig') }}
+    {% endif %}
+    </section>
+{% endblock %}

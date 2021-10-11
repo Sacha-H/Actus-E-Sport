@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Joueur index
+{% endblock %}
+
+{% block body %}
+	<section class="index container-fluid">
+		<h1>Les Joueurs</h1>
+		{% if (is_granted('ROLE_ADMIN')) %}
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>PseudoJoueur</th>
+						<th>NomJoueur</th>
+						<th>PrenomJoueur</th>
+						<th>PhotoJoueur</th>
+						<th>Equipe</th>
+						<th>actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for joueur in joueurs %}
+						<tr>
+							<td>{{ joueur.id }}</td>
+							<td>{{ joueur.pseudoJoueur }}</td>
+							<td>{{ joueur.nomJoueur }}</td>
+							<td>{{ joueur.prenomJoueur }}</td>
+							<td><img src="{{ asset('uploads/photos/' ~ joueur.photoJoueur) }}" width="100"></td>
+							<td>{{ joueur.equipe.nomEquipe }}</td>
+							<td>
+								<a href="{{ path('joueur_show', {'id': joueur.id}) }}">show</a>
+								<a href="{{ path('joueur_edit', {'id': joueur.id}) }}">edit</a>
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="6">no records found</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+			<a href="{{ path('joueur_new') }}">Create new</a>
+		{% endif %}
+		{% for esport in esports %}
+			<div class='col-md-12 affichage-jeux'>
+				<h5>
+					<a href="{{ path('esport_show', {'id': esport.id}) }}">
+						{{ esport.nomEsport }}
+
+
+						<img src="{{ asset('uploads/photos/' ~ esport.photoEsport) }}" width="200">
+					</a>
+				</h5>
+			</div>
+
+			<section class="equipe row">
+
+
+				{% for equipe in equipes %}
+					{% if equipe.esport.id == esport.id %}
+						<div class='col-md-12 affichage-equipe'>
+							<h6>
+								<a href="{{ path('equipe_show', {'id': equipe.id}) }}">
+									{{ equipe.nomEquipe }}
+
+
+									<img src="{{ asset('uploads/photos/' ~ equipe.photoEquipe) }}" height="100">
+								</a>
+							</h6>
+
+
+							<section class="joueur row">
+
+
+								{% for joueur in joueurs %}
+									{% if joueur.equipe.id == equipe.id %}
+										<div class='col-md-2 affichage-joueur'>
+											<h6>
+												<a href="{{ path('joueur_show', {'id': joueur.id}) }}">
+													<span>{{ joueur.pseudoJoueur }}</span><br>
+													{{ joueur.nomJoueur }}<br>
+													{{ joueur.prenomJoueur }}
+													<img src="{{ asset('uploads/photos/' ~ joueur.photoJoueur) }}" height="80">
+												</a>
+											</h6>
+										</div>
+									{% endif %}
+								{% endfor %}
+
+
+							</section>
+                            </div>
+						{% endif %}
+					{% endfor %}
+				</section>
+
+			{% endfor %}
+		</section>
+	{% endblock %}

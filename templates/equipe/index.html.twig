@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Equipe index
+{% endblock %}
+
+{% block body %}
+	<section class="index container-fluid">
+		<h1>Les Equipes</h1>
+		{% if (is_granted('ROLE_ADMIN')) %}
+			<h2>Admin</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>NomEquipe</th>
+						<th>PhotoEquipe</th>
+						<th>E-Sport</th>
+
+						<th>actions</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					{% for equipe in equipes %}
+						<tr>
+							<td>{{ equipe.id }}</td>
+							<td>{{ equipe.nomEquipe }}</td>
+
+							<td><img src="{{ asset('uploads/photos/' ~ equipe.photoEquipe) }}" height="100"></td>
+							<td>{{ equipe.esport.nomEsport }}</td>
+
+							<td>
+								<a href="{{ path('equipe_show', {'id': equipe.id}) }}">show</a>
+								<a href="{{ path('equipe_edit', {'id': equipe.id}) }}">edit</a>
+							</td>
+
+						</tr>
+
+					{% else %}
+						<tr>
+							<td colspan="4">no records found</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+			<a href="{{ path('equipe_new') }}">Create new</a>
+		{% endif %}
+		{% for esport in esports %}
+			<div class='col-md-12 affichage-jeux'>
+				<h5>
+					<a href="{{ path('esport_show', {'id': esport.id}) }}">
+						{{ esport.nomEsport }}
+
+
+						<img src="{{ asset('uploads/photos/' ~ esport.photoEsport) }}" width="200">
+					</a>
+				</h5>
+			</div>
+			<section class="equipe row">
+
+
+				{% for equipe in equipes %}
+					{% if equipe.esport.id == esport.id %}
+						<div class='col-md-3 affichage-equipe'>
+							<h6>
+								<a href="{{ path('equipe_show', {'id': equipe.id}) }}">
+									{{ equipe.nomEquipe }}
+
+
+									<img src="{{ asset('uploads/photos/' ~ equipe.photoEquipe) }}" height="100">
+								</a>
+							</h6>
+						</div>
+					{% endif %}
+				{% endfor %}
+				</section>
+			{% endfor %}
+
+
+		
+	</section>
+{% endblock %}

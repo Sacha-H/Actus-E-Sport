@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article index{% endblock %}
+
+{% block body %}
+<section class="index">
+    <h1>Les Articles</h1>
+ {% if (is_granted('ROLE_EDITEUR')) %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>TitreArticle</th>
+                <th>CommentaireArticle</th>
+                <th>PhotoArticle</th>
+                <th>DateArticle</th>
+                <th>Esport</th>
+                <th>Equipe</th>
+                <th>auteur</th>
+                <th>Joueur</th>
+               
+                <th>actions</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+      
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.titreArticle }}</td>
+                <td>{{ article.commentaireArticle }}</td>
+                <td><img src="{{ asset('uploads/photos/' ~ article.photoArticle) }}" width="100"></td>
+                <td>{{ article.dateArticle ? article.dateArticle|date('d-m-Y') : '' }}</td>
+                <td>{{ article.esport.nomEsport }}</td>
+                <td>{{ article.equipe.nomEquipe }}</td>
+                <td>{{ article.joueur.pseudoJoueur }}</td>
+                <td>{{ article.user.pseudo }}</td>
+           
+                <td>
+                    <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
+                    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+                </td>
+          
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_new') }}">Create new</a>
+    {% endif %}
+    <section class="row">
+
+		
+			
+
+			{% for article in articles %}
+				
+
+					<div class="col-md-4 article">
+                    <a class="aArticle" href="{{ path('article_show', {'id': article.id}) }}">
+						<h4>{{ article.titreArticle }}</h4>
+						<img src="{{ asset('uploads/photos/' ~ article.photoArticle) }}" width="150">
+						<p>{{ article.esport.nomEsport }}<br>
+							{{ article.equipe.nomEquipe }}<br>
+							{{ article.joueur.pseudoJoueur }}<br>
+                           <span class='auteur'>ecrit par : {{ article.user.pseudo }}</span><br>
+                           {{ article.dateArticle ? article.dateArticle|date('d-m-Y') : '' }}</p>
+					</a>
+                    </div>
+				
+			{% endfor %}
+
+
+		</section>
+
+
+
+
+
+
+
+
+
+
+    </section>
+{% endblock %}

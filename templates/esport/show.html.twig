@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Esport{% endblock %}
+
+{% block body %}
+<section class='index show'>
+    <h1>{{ esport.nomEsport }}
+
+
+<img src="{{ asset('uploads/photos/' ~ esport.photoEsport) }}" width="300"></h1>
+
+{% if (is_granted('ROLE_EDITEUR')) %}
+    <a href="{{ path('esport_index') }}">back to list</a>
+
+    <a href="{{ path('esport_edit', {'id': esport.id}) }}">edit</a>
+
+    {{ include('esport/_delete_form.html.twig') }}
+    {% endif %}
+    </section>
+{% endblock %}

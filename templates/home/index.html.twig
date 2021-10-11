@@ -1,0 +1,142 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actus
+{% endblock %}
+
+{% block body %}
+	<body class="container-fluid">
+		<section class="intro">
+			<article class='titre'>
+
+				<h1>Actus-E-Sport</h1>
+				<p>Avec
+					<strong>Actus-E-Sport</strong>
+					vous avez accès à toutes les
+					<strong>infos</strong>, les
+					<strong>actus</strong>, les
+					<strong>résultat</strong>, et les
+					<strong>calendriers</strong>
+					de
+																							                l'Esport !
+				</p>
+			</article>
+
+
+			<video autoplay muted loop>
+				<source src="{{ asset('video/videointro.mp4')}}" type="video/mp4">
+			</video>
+
+		</section>
+
+
+		<section class="derniere-actus row">
+
+			<h2 class="col-md-12" id="scroll">Les Dernières Actus</h2>
+
+			{% for article in articlesByDate %}
+
+
+				<div class="col-md-4 article">
+				<a class="haArticle" href="{{ path('article_show', {'id': article.id}) }}">
+					<h4>{{ article.titreArticle }}</h4>
+					<img src="{{ asset('uploads/photos/' ~ article.photoArticle) }}" width="150">
+					<p>{{ article.esport.nomEsport }}<br>
+						{{ article.equipe.nomEquipe }}<br>
+						{{ article.joueur.pseudoJoueur }}<br>
+						<span class"auteur">ecrit par : {{ article.user.pseudo }}</span><br>
+						{{ article.dateArticle ? article.dateArticle|date('d-m-Y') : '' }}</p>
+						</a>
+				</div>
+
+			{% endfor %}
+
+
+		</section>
+		<section class="populaire-actus row">
+
+			<h2 class="col-md-12">Les Meilleurs Actus</h2>
+			{% set i = 0 %}
+
+			{% for article in articles %}
+				{%  set i = i+1 %}
+				{% if (i <= 3) %}
+
+					<div class="col-md-4 article">
+					<a class="haArticle" href="{{ path('article_show', {'id': article.id}) }}">
+						<h4>{{ article.titreArticle }}</h4>
+						<img src="{{ asset('uploads/photos/' ~ article.photoArticle) }}" width="150">
+						<p>{{ article.esport.nomEsport }}<br>
+							{{ article.equipe.nomEquipe }}<br>
+							{{ article.joueur.pseudoJoueur }}<br>
+							<span class"auteur">ecrit par : {{ article.user.pseudo }}</span>
+							{{ article.dateArticle ? article.dateArticle|date('d-m-Y') : '' }}
+							</p>
+							</a>
+					</div>
+				{% endif %}
+			{% endfor %}
+
+
+		</section>
+
+
+		<section class="jeux row">
+			<h2 class="col-md-12">Les Jeux</h2>
+
+			{% for esport in esports %}
+				<div class='col-md-6 affichage-jeux'>
+					<h5>
+						<a href="{{ path('esport_show', {'id': esport.id}) }}">
+							{{ esport.nomEsport }}
+
+
+							<img src="{{ asset('uploads/photos/' ~ esport.photoEsport) }}" width="200">
+						</a>
+					</h5>
+				</div>
+			{% endfor %}
+
+
+		</section>
+
+		<section class="equipe row">
+			<h2 class="col-md-12">Les Equipes</h2>
+
+			{% for equipe in equipes %}
+				<div class='col-md-3 affichage-equipe'>
+					<h6>
+						<a href="{{ path('equipe_show', {'id': equipe.id}) }}">
+							{{ equipe.nomEquipe }}
+
+
+							<img src="{{ asset('uploads/photos/' ~ equipe.photoEquipe) }}" height="100">
+						</a>
+					</h6>
+				</div>
+			{% endfor %}
+
+
+		</section>
+		<section class="joueur row">
+			<h2 class="col-md-12">Les Joueurs</h2>
+
+			{% for joueur in joueurs %}
+				<div class='col-md-2 affichage-joueur'>
+					<h6>
+						<a href="{{ path('joueur_show', {'id': joueur.id}) }}">
+							{{ joueur.pseudoJoueur }}
+
+
+							<img src="{{ asset('uploads/photos/' ~ joueur.photoJoueur) }}" height="80">
+						</a>
+					</h6>
+				</div>
+			{% endfor %}
+
+
+		</section>
+
+
+	</body>
+
+{% endblock %}

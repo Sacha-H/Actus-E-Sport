@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+<section class='index'>
+    <h1>{{ article.titreArticle }}</h1>
+    <h1><img src="{{ asset('uploads/photos/' ~ article.photoArticle) }}" width="500">
+    </h1>
+            
+                
+                <h4 class="commentaire">{{ article.commentaireArticle }} <br>
+            
+                {{ article.dateArticle ? article.dateArticle|date('Y-m-d') : '' }} <br>
+                ecrit par : {{ article.user.pseudo }}
+    </h4>
+    {% if (is_granted('ROLE_EDITEUR')) %}
+    
+    <a href="{{ path('article_index') }}">back to list</a>
+
+    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+
+    {{ include('article/_delete_form.html.twig') }}
+    {% endif %}
+{% endblock %}
